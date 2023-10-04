@@ -1,0 +1,11 @@
+src/
+public/
+node_modules/
+.eslintrc.cjs
+index.html
+index.ts
+tsconfig-cjs.json
+tsconfig-esm.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
