@@ -12,9 +12,7 @@ npm install react-flexible-scroll
 
 ## Example - codesandbox
 
-```
-https://codesandbox.io/p/sandbox/spring-meadow-y33c3q?file=%2Fsrc%2FApp.tsx%3A8%2C31
-```
+[codesandbox](https://codesandbox.io/p/sandbox/spring-meadow-y33c3q?file=%2Fsrc%2FApp.tsx%3A8%2C31)
 
 ## Example - code
 
