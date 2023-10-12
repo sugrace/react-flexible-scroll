@@ -1,14 +1,22 @@
 # react-flexible-scroll
+
 react-flexible-scroll is a React component that provides an easy way to implement virtualized infinite scrolling functionality.
 
-
 ## Installation
+
 You can install react-flexible-scroll using npm:
+
 ```
 npm install react-flexible-scroll
 ```
 
-## Usage
+## Example - codesandbox
+
+```
+https://codesandbox.io/p/sandbox/spring-meadow-y33c3q?file=%2Fsrc%2FApp.tsx%3A8%2C31
+```
+
+## Example - code
 
 ```
 import { useState } from "react";
@@ -76,54 +84,61 @@ export default App;
 ```
 maxPage: number
 ```
-: Total number of pages. 
+
+: Total number of pages.
 
 ```
 getProducts: (page: number) => Promise<unknown[]>
 ```
+
 : An asynchronous function that takes a page number as an argument and returns the data for that page.
 
 ```
 setProductList: React.Dispatch<React.SetStateAction<unknown[]>>
 ```
+
 : A state update function for the product list.
 
 ```
-productCountPerPage: number 
+productCountPerPage: number
 ```
+
 : The number of products to display per page.
 
 ```
 productHeight: number
 ```
-: Specifies the height of each product.
 
+: Specifies the height of each product.
 
 ### Optional Props
 
 ```
 productCountPerRow: 1~3 recommended. default 1
 ```
+
 : The number of products to display in one row x.
 
 ```
 fetchingByProductListRowIndex: default is 3
 ```
+
 : Determines when data fetching should occur based on scroll position reaching a certain row from top
 
 ```
-flexDirection: "row" or "column", default is "row" 
+flexDirection: "row" or "column", default is "row"
 ```
+
 : Determines layout orientation
 
 ```
-productWidth: number 
+productWidth: number
 ```
+
 : Specifies width for each product item if needed.
 
 ```
 productStyle: React.CSSProperties
 ```
+
 : Allows you to apply custom styles to your Product component.
-
-
