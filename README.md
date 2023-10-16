@@ -16,7 +16,7 @@ npm install react-flexible-scroll
 
 ## Example - code
 
-```
+```tsx
 import { useState } from "react";
 import { InfiniteScroll } from "react-flexible-scroll";
 import axios from "axios";
