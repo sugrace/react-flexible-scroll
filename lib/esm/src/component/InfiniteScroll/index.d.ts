@@ -1,4 +1,5 @@
-import React, { JSXElementConstructor } from "react";
+import * as React from "react";
+import { JSXElementConstructor } from "react";
 type InfiniteScrollInfo = {
     children: React.ReactElement<any, string | JSXElementConstructor<any>>[];
     getProducts: (pageIndex: number) => Promise<any[]>;
@@ -12,5 +13,5 @@ type InfiniteScrollInfo = {
     productHeight: number;
     productStyle?: React.CSSProperties;
 };
-declare function InfiniteScroll({ children, getProducts, maxPage, productCountPerPage, setProductList: setVisibleProductList, fetchingByProductListRowIndex, productCountPerRow, flexDirection, productWidth, productHeight, productStyle, }: InfiniteScrollInfo): any;
+declare function InfiniteScroll({ children, getProducts, maxPage, productCountPerPage, setProductList: setVisibleProductList, fetchingByProductListRowIndex, productCountPerRow, flexDirection, productWidth, productHeight, productStyle, }: InfiniteScrollInfo): import("react/jsx-runtime").JSX.Element;
 export default InfiniteScroll;
