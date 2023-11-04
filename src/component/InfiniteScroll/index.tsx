@@ -14,14 +14,11 @@ type CustomScrollEvent = {
 };
 
 type InfiniteScrollInfo = {
-  children: React.ReactElement<
-    unknown,
-    string | JSXElementConstructor<unknown>
-  >[];
-  getProducts: (pageIndex: number) => Promise<unknown[]>;
+  children: React.ReactElement<any, string | JSXElementConstructor<any>>[];
+  getProducts: (pageIndex: number) => Promise<any[]>;
   maxPage: number;
   productCountPerPage: number;
-  setProductList: (productList: unknown[]) => void;
+  setProductList: (productList: any[]) => void;
   fetchingByProductListRowIndex?: number;
   productCountPerRow?: number;
   flexDirection?: React.CSSProperties["flexDirection"] | undefined;
@@ -41,7 +38,7 @@ const throttle = (
   }) => Promise<void>,
   delay: number
 ): (() => void) => {
-  let timer: unknown;
+  let timer: any;
 
   return function (...args) {
     if (!timer) {
@@ -53,7 +50,7 @@ const throttle = (
   };
 };
 
-const pageMap: { [key: number]: unknown[] } = {};
+const pageMap: { [key: number]: any[] } = {};
 const requestedPageMap: { [key: number]: boolean } = {};
 
 function InfiniteScroll({

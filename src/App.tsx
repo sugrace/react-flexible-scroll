@@ -10,7 +10,7 @@ const LoadingProduct = () => {
   return <div>{"Loading"}</div>;
 };
 
-const getProducts = async (pageParam: number): Promise<unknown[]> => {
+const getProducts = async (pageParam: number): Promise<any[]> => {
   const response = await axios.get("http://localhost:3000", {
     params: {
       page: pageParam,
@@ -26,7 +26,7 @@ const getProducts = async (pageParam: number): Promise<unknown[]> => {
 };
 
 function App() {
-  const [productList, setProductList] = useState<unknown[]>([]);
+  const [productList, setProductList] = useState<any[]>([]);
 
   return (
     <InfiniteScroll
