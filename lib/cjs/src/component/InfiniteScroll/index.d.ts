@@ -13,5 +13,5 @@ type InfiniteScrollInfo = {
     productHeight: number;
     productStyle?: React.CSSProperties;
 };
-declare const InfiniteScroll: React.ForwardRefExoticComponent<InfiniteScrollInfo & React.RefAttributes<HTMLDivElement>>;
+declare const InfiniteScroll: ({ children, getProducts, maxPage, productCountPerPage, setProductList: setVisibleProductList, fetchingByProductListRowIndex, productCountPerRow, flexDirection, productWidth, productHeight, productStyle, }: InfiniteScrollInfo) => import("react/jsx-runtime").JSX.Element;
 export default InfiniteScroll;
