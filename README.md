@@ -10,7 +10,13 @@ You can install react-flexible-scroll using npm:
 npm install react-flexible-scroll
 ```
 
-## Example 1 - codesandbox
+## Demo
+
+  <img src="https://github.com/sugrace/react-flexible-scroll/assets/46946800/f4dcd25a-6a14-48b1-bc35-33418a2388e3"/>
+
+  <img src="https://github.com/sugrace/react-flexible-scroll/assets/46946800/374464ea-18e9-414f-85c1-15d558da6c4c"/>
+
+## Example - codesandbox
 
 [codesandbox](https://codesandbox.io/p/sandbox/spring-meadow-y33c3q?file=%2Fsrc%2FApp.tsx%3A8%2C31)
 
@@ -77,7 +83,6 @@ function PokemonDex() {
 }
 
 export default PokemonDex;
-
 
 ## Props
 
@@ -162,68 +167,9 @@ productWidth: number
 productStyle: React.CSSProperties
 
 ```
-import { useState } from "react";
-import { InfiniteScroll } from "react-flexible-scroll";
-import axios from "axios";
-
-interface Pokemon {
-  name: string;
-  url: string;
-}
-const PokemonCard = ({ item, index }: { item: Pokemon; index: number }) => {
-  console.warn({ index, item });
-  return <div>{item.name}</div>;
-};
-
-const LoadingCard = () => {
-  return <div>{"Loading"}</div>;
-};
-
-function PokemonDex() {
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
-
-  const getPokemonCards = async (page: number) => {
-    // Page parameter is the page you are currently viewing.
-    const limit = 20;
-    const offset = page * limit;
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-      );
-      return response.data.results;
-    } catch (error) {
-      console.error("Error fetching Pokemon list:", error);
-    }
-  };
-
-  return (
-    <InfiniteScroll
-      maxPage={10} // Required
-      getProducts={getPokemonCards} // Required
-      setProductList={setPokemonList} // Required
-      productCountPerPage={20} // Required
-      productCountPerRow={2} // Not Required ( 1~3 recommended. default 1)
-      productHeight={389} // Required
-      productWidth={182} // Not Required (productsPerRow determine product's width)
-      fetchingByProductListRowIndex={3} // Not Required (when the scroll position reaches a certain number of rows from the top, data is fetched. (default: 3))
-      productStyle={{}} // Not Required (Product Custom Style)
-      flexDirection={"row"} // Not Required ( default: row )
-    >
-      {pokemonList?.map((pokemon, index) => {
-        console.warn({ pokemon, pokemonList: pokemonList.length });
-        if (pokemon.name) {
-          return (
-            <PokemonCard key={pokemon.name} item={pokemon} index={index} />
-          );
-        } else {
-          return <LoadingCard />; // Loading UI
-        }
-      })}
-    </InfiniteScroll>
-  );
-}
-
-export default PokemonDex;
 
 : Allows you to apply custom styles to your Product component.
+
+
+
 ```
