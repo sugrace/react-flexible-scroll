@@ -12,9 +12,9 @@ npm install react-flexible-scroll
 
 ## Demo
 
-  <img src="https://github.com/sugrace/react-flexible-scroll/assets/46946800/f4dcd25a-6a14-48b1-bc35-33418a2388e3"/>
+  <img src="https://github.com/sugrace/react-flexible-scroll/assets/46946800/33458b2e-6f26-404c-8ea4-fc4c94adcba7"/>
 
-  <img src="https://github.com/sugrace/react-flexible-scroll/assets/46946800/374464ea-18e9-414f-85c1-15d558da6c4c"/>
+  <img src="https://github.com/sugrace/react-flexible-scroll/assets/46946800/6b6d7d4c-1d11-422d-ab4c-ed3b5eeadd07"/>
 
 ## Example - codesandbox
 

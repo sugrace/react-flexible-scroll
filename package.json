@@ -2,7 +2,7 @@
   "name": "react-flexible-scroll",
   "description": "React Virtualized InfiniteScroll",
   "private": false,
-  "version": "0.1.15",
+  "version": "0.2.3",
   "module": "./lib/esm/index.js",
   "main": "./lib/cjs/index.js",
   "license": "MIT",
