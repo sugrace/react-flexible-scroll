@@ -58,22 +58,19 @@ function PokemonDex() {
 
   return (
     <InfiniteScroll
-      maxPage={10} // Required
+      maxPage={20} // Required
       getProducts={getPokemonCards} // Required
       setProductList={setPokemonList} // Required
-      productCountPerPage={20} // Required
+      productCountPerPage={20} // Required ( value should be identical to limit value in getProducts function )
       productCountPerRow={2} // Not Required ( 1~3 recommended. default 1)
-      productHeight={389} // Required
-      productWidth={182} // Not Required (productsPerRow determine product's width)
+      productHeight={189} // Required
+      productWidth={150} // Not Required (productsPerRow determine product's width)
       fetchingByProductListRowIndex={3} // Not Required (when the scroll position reaches a certain number of rows from the top, data is fetched. (default: 3))
-      productStyle={{}} // Not Required (Product Custom Style)
       flexDirection={"row"} // Not Required ( default: row )
     >
       {pokemonList?.map((pokemon) => {
         if (pokemon.name) {
-          return (
-            <PokemonCard key={pokemon.name} item={pokemon}  />
-          );
+          return <PokemonCard key={pokemon.name} item={pokemon} />;
         } else {
           return <LoadingCard />; // Loading UI
         }
@@ -161,15 +158,4 @@ productWidth: number
 ```
 
 : Specifies width for each product item if needed.
-
-```
-
-productStyle: React.CSSProperties
-
-```
-
-: Allows you to apply custom styles to your Product component.
-
-
-
 ```

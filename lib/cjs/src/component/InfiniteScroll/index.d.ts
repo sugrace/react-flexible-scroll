@@ -11,7 +11,6 @@ type InfiniteScrollInfo = {
     flexDirection?: React.CSSProperties["flexDirection"] | undefined;
     productWidth?: number;
     productHeight: number;
-    productStyle?: React.CSSProperties;
 };
-declare const InfiniteScroll: ({ children, getProducts, maxPage, productCountPerPage, setProductList: setVisibleProductList, fetchingByProductListRowIndex, productCountPerRow, flexDirection, productWidth, productHeight, productStyle, }: InfiniteScrollInfo) => import("react/jsx-runtime").JSX.Element;
+declare const InfiniteScroll: ({ children, getProducts, maxPage, productCountPerPage, setProductList: setVisibleProductList, fetchingByProductListRowIndex, productCountPerRow, flexDirection, productWidth, productHeight, }: InfiniteScrollInfo) => import("react/jsx-runtime").JSX.Element;
 export default InfiniteScroll;

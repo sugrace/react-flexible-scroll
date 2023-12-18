@@ -1,51 +1,75 @@
 import { useState } from "react";
-import InfiniteScroll from "./component/InfiniteScroll";
+import { InfiniteScroll } from "react-flexible-scroll";
 import axios from "axios";
 
-const Product = () => {
-  return <div>{"Sample"}</div>;
+interface Pokemon {
+  name: string;
+  url: string;
+}
+const PokemonCard = ({ item }: { item: Pokemon }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        background: "gray",
+        width: "100%",
+        height: "100%",
+        border: "2px  solid",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          width: "50%",
+          height: "70%",
+          background: "white",
+        }}
+      >
+        {item.name}
+      </div>
+    </div>
+  );
 };
 
-const LoadingProduct = () => {
+const LoadingCard = () => {
   return <div>{"Loading"}</div>;
 };
 
-const getProducts = async (pageParam: number): Promise<any[]> => {
-  const response = await axios.get("http://localhost:3000", {
-    params: {
-      page: pageParam,
-      totalPage: 10,
-      size: 20,
-    },
-  });
-  if (response.status === 200) {
-    return response.data.data.data || [];
-  } else {
-    return [];
-  }
-};
-
 function App() {
-  const [productList, setProductList] = useState<any[]>([]);
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
+
+  const getPokemonCards = async (page: number) => {
+    // Page parameter is the page you are currently viewing.
+    const limit = 20;
+    const offset = page * limit;
+    try {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
+      );
+      return response.data.results;
+    } catch (error) {
+      console.error("Error fetching Pokemon list:", error);
+    }
+  };
 
   return (
     <InfiniteScroll
-      maxPage={10} // Required
-      getProducts={getProducts} // Required
-      setProductList={setProductList} // Required
-      productCountPerPage={20} // Required
+      maxPage={20} // Required
+      getProducts={getPokemonCards} // Required
+      setProductList={setPokemonList} // Required
+      productCountPerPage={20} // Required ( value should be identical to limit value in getProducts function )
       productCountPerRow={2} // Not Required ( 1~3 recommended. default 1)
-      productHeight={389} // Required
-      productWidth={182} // Not Required (productsPerRow determine product's width)
+      productHeight={189} // Required
+      productWidth={150} // Not Required (productsPerRow determine product's width)
       fetchingByProductListRowIndex={3} // Not Required (when the scroll position reaches a certain number of rows from the top, data is fetched. (default: 3))
-      productStyle={{}} // Not Required (Product Custom Style)
       flexDirection={"row"} // Not Required ( default: row )
     >
-      {productList.map((product) => {
-        if (product.key) {
-          return <Product key={product.key} />; // key is a unique property of a Product
+      {pokemonList?.map((pokemon) => {
+        if (pokemon.name) {
+          return <PokemonCard key={pokemon.name} item={pokemon} />;
         } else {
-          return <LoadingProduct></LoadingProduct>; // Loading UI
+          return <LoadingCard />; // Loading UI
         }
       })}
     </InfiniteScroll>

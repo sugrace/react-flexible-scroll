@@ -20,7 +20,6 @@ type InfiniteScrollInfo = {
   flexDirection?: React.CSSProperties["flexDirection"] | undefined;
   productWidth?: number;
   productHeight: number;
-  productStyle?: React.CSSProperties;
 };
 const INITIAL_PAGE_INDEX: number = 0;
 
@@ -60,7 +59,6 @@ const InfiniteScroll = ({
   flexDirection,
   productWidth,
   productHeight = window.innerHeight / 4,
-  productStyle,
 }: InfiniteScrollInfo) => {
   let startRowIndex = 0;
   const visibleRowLength = productCountPerPage / productCountPerRow;
@@ -278,7 +276,6 @@ const InfiniteScroll = ({
               width: productWidth,
               height: productHeight,
               flex: `0 1 ${100 / productCountPerRow}%`,
-              ...productStyle,
             }}
           >
             {React.cloneElement(child, { key: child.key })}
